@@ -3,16 +3,28 @@
 <head>
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
-<body>
-  <!-- Directive: ng-controller -->
-  <!-- Controller: StoreController -->
-  <!-- Alias: store -->
-  <div ng-controller="StoreController as store">
-    <h1> {{store.product.name}} </h1>
-    <h2> ${{store.product.price}} </h2>
-    <p> {{store.product.description}} </p>
+<!-- Directive: ng-controller -->
+<!-- Controller: StoreController -->
+<!-- Alias: store -->
+<body ng-controller="StoreController as store">
+  <!-- ng-hide -->
+  <!-- Hide this product when soldOut == true -->
+  <!-- ng-repeat directive will iterate through []-->
+  <!-- product in the array store.products -->
+  <div ng-repeat="product in store.products">
+    <h1> {{product.name}} </h1>
+    <h2> ${{product.price}} </h2>
+    <p> {{product.description}} </p>
+    <!-- Expression: store.product.canPurchase -->
+    <!-- show button when canPurchase == true -->
+    <button ng-show="store.products.canPurchase"> Add to Cart </button>
   </div>
   <script type="text/javascript" src="angular.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
+
+<!-- Directives: HTML annotations that trigger JS behaviors -->
+<!-- Modules: Where our application components live -->
+<!-- Controllers: Where we add application behavior -->
+<!-- Expresions: how values get displayed within the page -->
