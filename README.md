@@ -69,7 +69,7 @@ Built-In Directives
   <li>{{product.name}}</li>
 </div>
 ```
-- **ng-source**: loading images
+- **ng-src**: loading images
 ```html
 <img ng-src="{{product.images[0].full}}"
 ```
