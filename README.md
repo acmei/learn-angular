@@ -58,7 +58,37 @@ Controllers
 Built-In Directives
 -------------------
 - A marker on a HTML tag that tells Angular to run or reference some JS code.
+- **ng-show/ng-hide**: displays/hides the element if the value of the expression is `true`
+```html
+<div ng-show="store.product.canPurchase">
+<div ng-hide="store.product.soldOut">
+```
 - **ng-repeat**: iterates through an array
 ```html
 <div ng-repeat="product in store.products">
+  <li>{{product.name}}</li>
+</div>
+```
+
+Filters
+-------
+- auto-formatting `{{data | filter:options}}`
+```html
+<!-- DATE -->
+<!-- 12/27/2013 @ 12:50AM --> 
+{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}
+
+<!-- UPPERCASE/LOWERCASE -->
+<!-- OCTAGON GEM -->
+{{'octagon gem' | uppercase}}
+
+<!-- LIMIT -->
+<!-- My Desc -->
+{{'My Description' | limitTo:8}}
+<li ng-repeat="product in store.products | limitTo:3">
+
+<!-- ORDER -->
+<!-- Lists products in descending order -->
+<!-- Without the -, listed in ascending order -->
+<li ng-repeat="product in store.products | orderBy:'-price'">
 ```
