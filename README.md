@@ -98,6 +98,8 @@ Built-In Directives
 </form>
 ```
 - **ng-submit**: calls a function once a form is submitted
+- **ng-pristine/ng-dirty**: input field is empty/has text
+- **ng-valid/ng-invalid**: input data is valid/invalid
 
 Filters
 -------
@@ -120,4 +122,16 @@ Filters
 <!-- Lists products in descending order -->
 <!-- Without the -, listed in ascending order -->
 <li ng-repeat="product in store.products | orderBy:'-price'">
+```
+
+Validations
+-----------
+- **novalidate**: turn off default HTML validation
+- **required**: marks required fields
+- Only want valid forms to submit, add `formName.$valid` to `ng-submit` directive
+- input type validations:
+```html
+<input type="email" name="email">
+<input type="url" name="homepage">
+<input type="number" name="quantity" min=1 max=10>
 ```
