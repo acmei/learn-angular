@@ -17,7 +17,9 @@ Start npm HTTP Server
 Directives
 ----------
 - A marker on a HTML tag that tells Angular to run or reference some JS code.
-- **ng-repeat**: iterates through an array
-  ```html
-  <div ng-repeat="product in store.products">
-  ```
+- **ng-repeat**: iterates through an array 
+e.g.
+
+```html
+<div ng-repeat="product in store.products">
+```
