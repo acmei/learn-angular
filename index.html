@@ -13,13 +13,7 @@
   <!-- ng-repeat directive will iterate through []-->
   <!-- product in the array store.products -->
   <div ng-repeat="product in store.products">
-    <h3> 
-      {{product.name}}
-      <!-- Angular's way of dealing with currency -->
-      <!-- currency filter -->
-      <em class="pull-right"> {{product.price | currency}} </em class="pull-right">
-      <img ng-src="{{product.images[0].full}}"/>
-    </h3>
+    <product-title></product-title>
     <section ng-controller="PanelController as panel">
       <ul class="nav nav-pills">
         <li ng-class="{ active: panel.isSelected(1) }">
