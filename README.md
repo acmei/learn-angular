@@ -1,8 +1,6 @@
 Learn Angular Notes
 ===================
-**AngularJS**: A client-side JavaScript Framework for adding interactivity to HTML
-
-[Download AngularJS](http://angularjs.org)
+**[AngularJS](http://angularjs.org)**: A client-side JavaScript Framework for adding interactivity to HTML
 ```html
 <script type="text/javascript" src="angular.min.js"></script>
 ```
@@ -36,8 +34,10 @@ Controllers
 - define app's behavior by defining functions and values
 - attached to our app
 ```javascript
+// app.js
 (function(){
   var app = angular.module('store', []);
+  // Store Controller
   app.controller('StoreController', function() {
   });
 });
