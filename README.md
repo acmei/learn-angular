@@ -18,6 +18,7 @@ Modules
 - define dependencies for our app
 ```javascript
 // app.js
+
 var app = angular.module('store', []);
 // angular = AngularJS
 // 'store' = application name
@@ -35,6 +36,7 @@ Controllers
 - attached to our app
 ```javascript
 // app.js
+
 (function(){
   var app = angular.module('store', []);
   // Store Controller
