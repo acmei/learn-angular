@@ -69,6 +69,19 @@ Built-In Directives
   <li>{{product.name}}</li>
 </div>
 ```
+- **ng-source**: loading images
+```html
+<img ng-src="{{product.images[0].full}}"
+```
+- **ng-click**: updates expression on click
+```html
+<li><a href ng-click="tab = 1">Description</a></li>
+```
+- **ng-class**: if expression is `true`, set class
+```html
+<!-- if tab = 2, set class to 'active' -->
+<li ng-class="{ active:tab === 2 }></li>
+```
 
 Filters
 -------
