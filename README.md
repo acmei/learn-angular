@@ -45,6 +45,16 @@ Controllers
 });
 ```
 
+- Aliasing a controller
+```html
+<!-- index.html -->
+
+<div ng-controller="StoreController as store">
+  <h1>{{store.product.name}}</h1>
+</div>
+<!-- alias = store -->
+```
+
 Built-In Directives
 -------------------
 - A marker on a HTML tag that tells Angular to run or reference some JS code.
