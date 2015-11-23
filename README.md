@@ -26,8 +26,21 @@ var app = angular.module('store', []);
 // [] = dependencies
 ```
 ```html
-<!-- to include the module -->
+<html ng-app="store">
+<!-- add to bottom of index.html -->
 <script type="text/javascript" src="app.js"></script>
+```
+
+Controllers
+-----------
+- define app's behavior by defining functions and values
+- attached to our app
+```javascript
+(function(){
+  var app = angular.module('store', []);
+  app.controller('StoreController', function() {
+  });
+});
 ```
 
 Built-In Directives
