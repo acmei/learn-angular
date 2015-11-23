@@ -82,6 +82,22 @@ Built-In Directives
 <!-- if tab = 2, set class to 'active' -->
 <li ng-class="{ active:tab === 2 }></li>
 ```
+- **ng-model**: binds form element value to the property
+```html
+<form name="reviewForm">
+  <blockquote>
+    Stars: {{review.stars}}
+    Review: {{review.body}}
+  </blockquote>
+  <select ng-model="review.stars">
+    <option value="1">1 star</option>
+    <option value="2">2 stars</option>
+    ...
+  </select>
+  <textarea ng-model="review.body"></textarea>
+</form>
+```
+- **ng-submit**: calls a function once a form is submitted
 
 Filters
 -------
