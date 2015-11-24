@@ -196,12 +196,12 @@ Services
   - **$log**: log messages to console
   - **$filter**: filter an array
 
-```
+```javascript
 // app.js
 // services passed in as an argument to Controller function
 // called dependency injection
 
-app.controller('SomeController', ['$http', '$log, function($http, $log) {
+app.controller('SomeController', ['$http', '$log', function($http, $log) {
   // code here
 } ]);
 ```
@@ -209,18 +209,14 @@ app.controller('SomeController', ['$http', '$log, function($http, $log) {
 ```javascript
 // $http function with options object
 $http({ method: 'GET', url: '/products.json' });
+$http({ method: 'OPTIONS', url: '/path/to/resource.json' });
+$http({ method: 'PATCH', url: '/path/to/resource.json' });
+$http({ method: 'TRACE', url: '/path/to/resource.json' });
 
 // OR
 
 // shortcut method
 $http.get('/products.json', { apiKey: 'myApiKey' });
-
-// post(), put(), and delete() available
 $http.post('/path/to/resource.json', { param: 'value' });
 $http.delete('/path/to/resource.json');
-
-// other HTTP methods available by using config object
-$http({ method: 'OPTIONS', url: '/path/to/resource.json' });
-$http({ method: 'PATCH', url: '/path/to/resource.json' });
-$http({ method: 'TRACE', url: '/path/to/resource.json' });
 ```
