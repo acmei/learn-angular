@@ -19,10 +19,15 @@ Modules
 ```javascript
 // app.js
 
-var app = angular.module('store', []);
+var app = angular.module('store', ['store-products']);
 // angular = AngularJS
 // 'store' = application name
 // [] = dependencies
+
+//products.js
+(function() {
+  var app = angular.module('store-products', []);
+})();
 ```
 ```html
 <html ng-app="store">
