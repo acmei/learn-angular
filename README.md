@@ -216,6 +216,9 @@ $http({ method: 'TRACE', url: '/path/to/resource.json' });
 // OR
 
 // shortcut method
+$http.get('/products.json').success(function(data) {
+  store.products = data;
+});
 $http.get('/products.json', { apiKey: 'myApiKey' });
 $http.post('/path/to/resource.json', { param: 'value' });
 $http.delete('/path/to/resource.json');
