@@ -17,7 +17,7 @@ Modules
 - code is more maintainable, testable, readable
 - define dependencies for our app
 ```javascript
-*// app.js*
+// app.js
 
 var app = angular.module('store', []);
 // angular = AngularJS
@@ -26,7 +26,7 @@ var app = angular.module('store', []);
 ```
 ```html
 <html ng-app="store">
-*<!-- add to bottom of index.html -->*
+<!-- add to bottom of index.html -->
 <script type="text/javascript" src="app.js"></script>
 ```
 
@@ -35,7 +35,7 @@ Controllers
 - define app's behavior by defining functions and values
 - attached to our app
 ```javascript
-*// app.js*
+// app.js
 
 (function(){
   var app = angular.module('store', []);
@@ -47,7 +47,7 @@ Controllers
 
 - Aliasing a controller
 ```html
-*<!-- index.html -->*
+<!-- index.html -->
 
 <div ng-controller="StoreController as store">
   <h1>{{store.product.name}}</h1>
@@ -112,22 +112,22 @@ Custom Directives
   - define a custom tag or attribute that is expanded or replaced
   - can include Controller logic, if needed
 ```html
-*<!-- index.html -->*
+<!-- index.html -->
 
-*<!-- element directive: use for UI widgets -->*
+<!-- element directive: use for UI widgets -->
 <product-title></product-title>
 
-*<!-- attribute directive: use for mixin behaviors (like tooltips) -->*
+<!-- attribute directive: use for mixin behaviors (like tooltips) -->
 <h3 product-title></h3>
 ```
 ```javascript
-*// app.js*
+// app.js
 
 app.directive('productTitle', function() {
   return {
-    // type of directive, E for HTML *Element*
+    // type of directive, E for HTML Element
     restrict: 'E',
-    // A for *Attribute*
+    // A for Attribute
     restrict: 'A',
     // URL of a template
     templateUrl: 'product-title.html'
