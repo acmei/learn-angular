@@ -130,7 +130,20 @@ app.directive('productTitle', function() {
     // A for Attribute
     restrict: 'A',
     // URL of a template
-    templateUrl: 'product-title.html'
+    templateUrl: 'product-title.html',
+    controller: function(){
+      this.tab = 1;
+
+      this.selectTab = function(setTab) {
+        this.tab = setTab;
+      }
+
+      this.isSelected = function(checkTab) {
+        return this.tab === checkTab;
+      }
+    },
+    // controller alias
+    controllerAs: 'panel'
   };
 });
 ```
