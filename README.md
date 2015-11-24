@@ -190,14 +190,13 @@ app.directive('productTitle', function() {
 
 Services
 --------
-- Give Controller additional functionality like:
+- Gives Controller additional functionality:
   - **$http**: fetching JSON data from a web service
     - returns a Promise object with .success() and .error()
   - **$log**: log messages to console
   - **$filter**: filter an array
-- Using a service in a Controller
 
-```javascript
+```
 // app.js
 // services passed in as an argument to Controller function
 // called dependency injection
@@ -206,7 +205,7 @@ app.controller('SomeController', ['$http', '$log, function($http, $log) {
   // code here
 } ]);
 ```
-- More with $http
+- **$http**
 ```javascript
 // $http function with options object
 $http({ method: 'GET', url: '/products.json' });
