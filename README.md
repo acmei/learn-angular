@@ -60,6 +60,41 @@ Controllers
 <!-- alias = store -->
 ```
 
+Filters
+-------
+- auto-formatting `{{data | filter:options}}`
+```html
+<!-- DATE -->
+<!-- 12/27/2013 @ 12:50AM --> 
+{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}
+
+<!-- UPPERCASE/LOWERCASE -->
+<!-- OCTAGON GEM -->
+{{'octagon gem' | uppercase}}
+
+<!-- LIMIT -->
+<!-- My Desc -->
+{{'My Description' | limitTo:8}}
+<li ng-repeat="product in store.products | limitTo:3">
+
+<!-- ORDER -->
+<!-- Lists products in descending order -->
+<!-- Without the -, listed in ascending order -->
+<li ng-repeat="product in store.products | orderBy:'-price'">
+```
+
+Validations
+-----------
+- **novalidate**: turn off default HTML validation
+- **required**: marks required fields
+- Only want valid forms to submit, add `formName.$valid` to `ng-submit` directive
+- input type validations:
+```html
+<input type="email" name="email">
+<input type="url" name="homepage">
+<input type="number" name="quantity" min=1 max=10>
+```
+
 Built-In Directives
 -------------------
 - A marker on a HTML tag that tells Angular to run or reference some JS code.
@@ -153,37 +188,40 @@ app.directive('productTitle', function() {
 });
 ```
 
-Filters
--------
-- auto-formatting `{{data | filter:options}}`
-```html
-<!-- DATE -->
-<!-- 12/27/2013 @ 12:50AM --> 
-{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}
+Services
+--------
+- Give Controller additional functionality like:
+  - Fetching JSON data from a web service with **$http**
+  ```javascript
+  // $http function with options object
+  $http({ method: 'GET', url: '/products.json' });
 
-<!-- UPPERCASE/LOWERCASE -->
-<!-- OCTAGON GEM -->
-{{'octagon gem' | uppercase}}
+  // OR
 
-<!-- LIMIT -->
-<!-- My Desc -->
-{{'My Description' | limitTo:8}}
-<li ng-repeat="product in store.products | limitTo:3">
+  // shortcut method
+  $http.get('/products.json', { apiKey: 'myApiKey' });
+  ```
+    - return a Promise object with .success() and .error()
+  - Logging messages to console with **$log**
+  - Filtering an array with **$filter**
+- Using a service in a Controller
+```javascript
+// app.js
+// services passed in as an argument to Controller function
+// called dependency injection
 
-<!-- ORDER -->
-<!-- Lists products in descending order -->
-<!-- Without the -, listed in ascending order -->
-<li ng-repeat="product in store.products | orderBy:'-price'">
+app.controller('SomeController', ['$http', '$log, function($http, $log) {
+  
+} ]);
 ```
+- More with $http
+  ```javascript
+  // post(), put(), and delete() available
+  $http.post('/path/to/resource.json', { param: 'value' });
+  $http.delete('/path/to/resource.json');
 
-Validations
------------
-- **novalidate**: turn off default HTML validation
-- **required**: marks required fields
-- Only want valid forms to submit, add `formName.$valid` to `ng-submit` directive
-- input type validations:
-```html
-<input type="email" name="email">
-<input type="url" name="homepage">
-<input type="number" name="quantity" min=1 max=10>
-```
+  // other HTTP methods available by using config object
+  $http({ method: 'OPTIONS', url: '/path/to/resource.json' });
+  $http({ method: 'PATCH', url: '/path/to/resource.json' });
+  $http({ method: 'TRACE', url: '/path/to/resource.json' });
+  ```
