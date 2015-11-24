@@ -191,37 +191,37 @@ app.directive('productTitle', function() {
 Services
 --------
 - Give Controller additional functionality like:
-  - Fetching JSON data from a web service with **$http**
-  ```javascript
-  // $http function with options object
-  $http({ method: 'GET', url: '/products.json' });
-
-  // OR
-
-  // shortcut method
-  $http.get('/products.json', { apiKey: 'myApiKey' });
-  ```
-    - return a Promise object with .success() and .error()
-  - Logging messages to console with **$log**
-  - Filtering an array with **$filter**
+  - **$http**: fetching JSON data from a web service
+    - returns a Promise object with .success() and .error()
+  - **$log**: log messages to console
+  - **$filter**: filter an array
 - Using a service in a Controller
+
 ```javascript
 // app.js
 // services passed in as an argument to Controller function
 // called dependency injection
 
 app.controller('SomeController', ['$http', '$log, function($http, $log) {
-  
+  // code here
 } ]);
 ```
 - More with $http
-  ```javascript
-  // post(), put(), and delete() available
-  $http.post('/path/to/resource.json', { param: 'value' });
-  $http.delete('/path/to/resource.json');
+```javascript
+// $http function with options object
+$http({ method: 'GET', url: '/products.json' });
 
-  // other HTTP methods available by using config object
-  $http({ method: 'OPTIONS', url: '/path/to/resource.json' });
-  $http({ method: 'PATCH', url: '/path/to/resource.json' });
-  $http({ method: 'TRACE', url: '/path/to/resource.json' });
-  ```
+// OR
+
+// shortcut method
+$http.get('/products.json', { apiKey: 'myApiKey' });
+
+// post(), put(), and delete() available
+$http.post('/path/to/resource.json', { param: 'value' });
+$http.delete('/path/to/resource.json');
+
+// other HTTP methods available by using config object
+$http({ method: 'OPTIONS', url: '/path/to/resource.json' });
+$http({ method: 'PATCH', url: '/path/to/resource.json' });
+$http({ method: 'TRACE', url: '/path/to/resource.json' });
+```
